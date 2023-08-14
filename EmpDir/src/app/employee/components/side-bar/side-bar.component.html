@@ -1,0 +1,23 @@
+ <h5 class="ps-3">Departments</h5>
+<div class="mb-4">
+    <button *ngFor="let department of departments" class="btn btn-white d-block filters"
+        (click)="getEmployeesBySideNavFilters('department',department)">
+        {{department}} ({{departmentMap.get(department)}})
+    </button>
+</div>
+<h5 class="ps-3">Offices</h5>
+<div class="mb-4">
+    <button *ngFor="let office of offices" class="btn btn-white d-block filters"
+        (click)="getEmployeesBySideNavFilters('office',office)">
+        {{office}} ({{officesMap.get(office)}})
+    </button>
+    
+</div>
+<h5 class="ps-3">Job Titles</h5>
+<div>
+    <button *ngFor="let jobTitle of jobTitles" class="btn btn-white d-block filters"
+        (click)="getEmployeesBySideNavFilters('jobTitle',jobTitle)">
+        {{jobTitle}} ({{jobTitlesMap.get(jobTitle)}})
+    </button>
+</div> 
+  

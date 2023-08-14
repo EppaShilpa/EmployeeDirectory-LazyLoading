@@ -1,0 +1,142 @@
+<div class="form m-4 pb-2">
+    <div class="modal-header">
+        <div class="row">
+            <div class="col-10">
+                <h3 *ngIf="inputData.action=='AddEmployee'">Add Employee</h3>
+                <h3 *ngIf="inputData.action=='DisplayAndEditEmployee' && !editMode"> Employee Details</h3>
+                <h3 *ngIf="inputData.action=='DisplayAndEditEmployee'&& editMode"> Edit Employee</h3>
+            </div>
+            <div class="col-2">
+                <button (click)="closeModal()" class="btn btn-secondary">&times;</button>
+            </div>
+        </div>
+    </div>
+    <form [formGroup]="employeeForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label for="firstname"><b>FirstName</b></label>
+            <input type="text" formControlName="firstName" id="firstname" class="form-control inputField"
+                [class.invalid]="employeeForm.get('firstName')?.invalid && employeeForm.get('firstName').touched">
+            <span *ngIf="employeeForm.get('firstName')?.errors?.required && employeeForm.get('firstName').touched"
+                class="text-danger">This Field is Required</span>
+            <span
+                *ngIf="employeeForm.get('firstName')?.errors?.pattern && !employeeForm.get('firstName')?.errors?.required"
+                class="text-danger">Enter valid first name</span>
+        </div>
+        <div class="form-group">
+            <label for="lastname"><b>LastName</b></label>
+            <input type="text" formControlName="lastName" id="lastname" class="form-control inputField"
+                [class.invalid]="employeeForm.get('lastName')?.invalid && employeeForm.get('lastName').touched">
+            <span *ngIf="employeeForm.get('lastName')?.errors?.required && employeeForm.get('lastName').touched"
+                class="text-danger">This Field is Required</span>
+            <span
+                *ngIf="employeeForm.get('lastName')?.errors?.pattern&& !employeeForm.get('lastName')?.errors?.required"
+                class="text-danger">Enter valid last name</span>
+        </div>
+        <div class="form-group">
+            <label for="preferredName"><b>PreferredName</b></label>
+            <input type="text" formControlName="preferredName" id="preferredName" class="form-control inputField"
+                [class.invalid]="employeeForm.get('preferredName')?.invalid && employeeForm.get('preferredName').touched">
+            <span
+                *ngIf="employeeForm.get('preferredName')?.errors?.required && employeeForm.get('preferredName').touched"
+                class="text-danger">This Field is Required</span>
+            <span
+                *ngIf="employeeForm.get('preferredName')?.errors?.pattern&& !employeeForm.get('preferredName')?.errors?.required"
+                class="text-danger">Enter valid preferred name</span>
+        </div>
+        <div class="form-group">
+            <label for="email"><b>Email</b></label>
+            <input type="email" formControlName="email" id="email" class="form-control inputField"
+                [class.invalid]="employeeForm.get('email')?.invalid && employeeForm.get('email').touched">
+            <span *ngIf="employeeForm.get('email')?.errors?.required && employeeForm.get('email').touched"
+                class="text-danger">This Field is Required</span>
+            <span *ngIf="employeeForm.get('email')?.errors?.pattern && !employeeForm.get('email')?.errors?.required"
+                class="text-danger">Enter valid email id</span>
+        </div>
+
+        <div class="form-group">
+            <label for="department"><b>Department</b></label>
+            <input type="text" formControlName="department" id="department" class="form-control inputField"
+                [class.invalid]="employeeForm.get('department')?.invalid && employeeForm.get('department').touched">
+            <span *ngIf="employeeForm.get('department')?.errors?.required && employeeForm.get('department').touched"
+                class="text-danger">This Field is Required</span>
+            <span
+                *ngIf="employeeForm.get('department')?.errors?.pattern&& !employeeForm.get('department')?.errors?.required"
+                class="text-danger">enter valid department</span>
+        </div>
+
+        <div class="form-group">
+            <label for="office"><b>Office</b></label>
+            <input type="text" formControlName="office" id="office" class="form-control inputField"
+                [class.invalid]="employeeForm.get('office')?.invalid && employeeForm.get('office').touched">
+            <span *ngIf="employeeForm.get('office')?.errors?.required && employeeForm.get('office').touched"
+                class="text-danger">This Field is Required</span>
+            <span *ngIf="employeeForm.get('office')?.errors?.pattern&& !employeeForm.get('office')?.errors?.required"
+                class="text-danger">Enter valid office name</span>
+        </div>
+
+        <div class="form-group">
+            <label for="jobTitle"><b>Job Title</b></label>
+            <input type="text" formControlName="jobTitle" id="jobTitle" class="form-control inputField"
+                [class.invalid]="employeeForm.get('jobTitle')?.invalid && employeeForm.get('jobTitle').touched">
+            <span *ngIf="employeeForm.get('jobTitle')?.errors?.required && employeeForm.get('jobTitle').touched"
+                class="text-danger">This Field is Required</span>
+            <span
+                *ngIf="employeeForm.get('jobTitle')?.errors?.pattern&& !employeeForm.get('jobTitle')?.errors?.required"
+                class="text-danger">Enter valid Jobtitle</span>
+        </div>
+
+        <div class="form-group">
+            <label for="phoneNumber"><b>Phone Number</b></label>
+            <input type="text" formControlName="phoneNumber" id="phoneNumber" class="form-control inputField"
+                [class.invalid]="employeeForm.get('phoneNumber')?.invalid && employeeForm.get('phoneNumber').touched">
+            <span *ngIf="employeeForm.get('phoneNumber')?.errors?.required && employeeForm.get('phoneNumber').touched"
+                class="text-danger">This Field is Required</span>
+            <span
+                *ngIf="employeeForm.get('phoneNumber')?.errors?.pattern&& !employeeForm.get('phoneNumber')?.errors?.required"
+                class="text-danger">Enter valid Phone number</span>
+        </div>
+
+        <div class="form-group">
+            <label for="skypeId"><b>Skype Id</b></label>
+            <input type="email" formControlName="skypeId" id="skypeId" class="form-control inputField"
+                [class.invalid]="employeeForm.get('skypeId')?.invalid && employeeForm.get('skypeId').touched">
+            <span *ngIf="employeeForm.get('skypeId')?.errors?.required && employeeForm.get('skypeId').touched"
+                class="text-danger">This Field is Required</span>
+            <span *ngIf="employeeForm.get('skypeId')?.errors?.pattern&& !employeeForm.get('skypeId')?.errors?.required"
+                class="text-danger">Enter valid skype Id</span>
+        </div>
+
+        <div class="form-group">
+            <label for="image"><b>Upload Image</b></label>
+            <fieldset [disabled]="isDisabled">
+                <input type="file" id="image" (change)="uploadFile($event)" formControlName="imageUrl"
+                    class="form-control inputField" accept="image/*"
+                    [class.invalid]="employeeForm.get('imageUrl')?.invalid && employeeForm.get('imageUrl')?.dirty" />
+                <span *ngIf="employeeForm.get('imageUrl')?.errors?.required && employeeForm.get('imageUrl').dirty"
+                    class="text-danger">please upload image</span>
+            </fieldset>
+        </div>
+
+        <div class="mt-3">
+            <div class="row" *ngIf="inputData.action=='AddEmployee'">
+                <div class="col-6">
+                    <button type="submit" class="btn btn-success" [disabled]="employeeForm.invalid">Add</button>
+                </div>
+                <div class="col-6">
+                    <button type="button" class="btn btn-primary" (click)="closeModal()">Cancel</button>
+                </div>
+            </div>
+            <div class="row" *ngIf="inputData.action=='DisplayAndEditEmployee' && !editMode">
+                <div class="col-6">
+                    <button type="button" class="btn btn-primary" (click)="enableEdit()" routerLink="employee/edit"  [routerLink]="['employee/edit', employeeId]">Edit Employee</button>
+                </div>
+                <div class="col-6">
+                    <button type="button" class="btn btn-primary" (click)="deleteEmployee()">Delete</button>
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-success" *ngIf="editMode">Save</button>
+        </div>
+
+    </form>
+</div>

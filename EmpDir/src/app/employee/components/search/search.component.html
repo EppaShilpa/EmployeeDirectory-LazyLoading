@@ -1,0 +1,40 @@
+<div class="row">
+    <div class="col-12">
+        <span>
+            <button class="btn lightBlue ms-1 alphabet-search" (click)="viewAllEmployees()">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    className="bi bi-person person" viewBox="0 0 16 16">
+                    <path
+                        d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z" />
+                </svg>
+            </button>
+            <button *ngFor="let alphabet of alphabetsArray" class="btn lightBlue ms-1  alphabet-search"
+                (click)="onAlphabetClick(alphabet)">
+                {{alphabet}}
+            </button>
+        </span>
+    </div>
+</div>
+<div class="row mt-3">
+    <div class="col-3">
+        <label for="search" class="fs-6"><b>Search</b></label>
+        <input type="text" name="" id="search" placeholder="Enter any keyword"
+            class="border border-secondary searchInput" [(ngModel)]="searchText" (keyup)="handleSearch()">
+    </div>
+    <div class="col-1">
+        <button class="btn clearButton" (click)="clearAllFilters()">Clear</button>
+    </div>
+    <div class="col-6">
+        <label for="search" class="fs-6"><b>Filter By</b></label>
+        <select class="filterSelect " id="slct_option" [(ngModel)]="selectedFilter">
+            <option value="preferredName">PreferredName</option>
+            <option value="firstName">FirstName</option>
+            <option value="lastName">LastName</option>
+        </select>
+    </div>
+    <div class="col-2 ">
+        <button class="btn lightBlue ms-3 ps-4 pe-3" (click)="openModal()" routerLink="/employees/add">Add Employee</button>
+    </div>
+</div>
+
+<!-- <h2>search</h2> -->

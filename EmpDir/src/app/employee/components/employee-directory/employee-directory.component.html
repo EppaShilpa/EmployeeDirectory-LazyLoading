@@ -1,0 +1,10 @@
+<div class="mt-4 empCards">
+    <ng-container *ngIf="(employees | filterData:filterType:filterValue:selectedFilter).length > 0; else noEmployees">
+        <div *ngFor="let employee of employees | filterData:filterType:filterValue:selectedFilter">
+            <app-employee-card [employeeData]="employee"></app-employee-card>
+        </div>
+    </ng-container>
+    <ng-template #noEmployees>
+        <p class="m-5">No employees found.</p>
+    </ng-template>
+</div>

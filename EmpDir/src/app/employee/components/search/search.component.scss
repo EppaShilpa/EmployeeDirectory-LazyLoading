@@ -1,0 +1,26 @@
+$color-blue:rgb(62, 204, 255);
+.lightBlue{
+    background-color: $color-blue;
+    color: white;
+    border-radius: 0px;
+    }
+.alphabet-search{
+       width: 41.5px;
+    height: 40px;
+}
+.searchInput{
+    margin-left: 10px;
+    width: 70%;
+    height: 100%;
+}
+.clearButton{
+    background-color: #60b700;
+    color: white;
+    border-radius: 0px;
+    padding: 6px 25px;
+}
+.filterSelect{
+    margin-left: 10px;
+    width: 30%;
+    height: 100%;
+}

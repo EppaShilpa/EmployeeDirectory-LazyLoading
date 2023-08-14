@@ -1,0 +1,10 @@
+.empCards{
+    min-height: fit-content;
+    border: 1px solid silver;
+    margin: 10px;
+    margin-bottom: 20px;
+    margin-right: 30px;
+    display: grid;
+    grid-template-rows: 120px;
+    grid-template-columns:  300px 300px 300px 300px;
+ }

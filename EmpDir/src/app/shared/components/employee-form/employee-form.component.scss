@@ -1,0 +1,14 @@
+::ng-deep .mat-mdc-dialog-container {
+    position: absolute;
+    left: 73%;
+    top: 2%;
+    width: 23vw;
+    height: fit-content;
+}
+
+.invalid{
+    border:2px solid red;
+}
+.inputField{
+    height: 30px;
+}
