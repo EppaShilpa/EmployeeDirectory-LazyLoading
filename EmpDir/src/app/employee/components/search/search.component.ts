@@ -9,15 +9,6 @@ import { selectedFilterType } from '../../constants/selectedFilterEnum';
 import { EmployeeFormComponent } from 'src/app/shared/components/employee-form/employee-form.component';
 import { MatDialog } from '@angular/material/dialog';
 
-// import { EmployeeDataService } from 'src/app/services/employee-data.service';
-// import { EmployeeFiltersService } from 'src/app/services/employee-filters.service';
-// import { Alphabets } from 'src/app/constants/alphabets';
-// import { IEmployee } from 'src/app/Models/iemployee';
-// import { MatDialog } from '@angular/material/dialog';
-// import { EmployeeFormComponent } from '../employee-form/employee-form.component';
-// import { EmployeesDataFilteringPipe } from 'src/app/pipes/employees-data-filtering.pipe';
-// import { selectedFilterType } from 'src/app/constants/selectedFilterEnum'
-// import { PipeModel } from 'src/app/Models/PipeModel';
 
 
 @Component({
@@ -32,7 +23,7 @@ export class SearchComponent {
   employees!: IEmployee[];
   filteredData: IEmployee[] = [];
   selectedFilter: string = "preferredName";
- 
+
 
   constructor(private searchService: EmployeeFiltersService, private employeeService: EmployeeDataService, private dialog: MatDialog, private dataFilteringPipe: EmployeesDataFilteringPipe, private pipeModel: PipeModel) {
     employeeService.employees$.subscribe(data => {
@@ -57,7 +48,7 @@ export class SearchComponent {
     this.pipeModel.selectedFilter = selectedFilterType.search;
     this.searchService.filterData(this.pipeModel)
     console.log(this.pipeModel);
-    
+
   }
 
   viewAllEmployees(): void {
@@ -73,7 +64,7 @@ export class SearchComponent {
     this.pipeModel.filterType = "";
     this.pipeModel.filterValue = "";
     this.pipeModel.selectedFilter = "";
-    this.searchText="";
+    this.searchText = "";
     this.searchService.filterData(this.pipeModel)
   }
 

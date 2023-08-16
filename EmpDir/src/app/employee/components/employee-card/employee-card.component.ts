@@ -2,9 +2,7 @@ import { Component, Input } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { IEmployee } from 'src/app/shared/Models/iemployee';
 import { EmployeeFormComponent } from 'src/app/shared/components/employee-form/employee-form.component';
-// import { MatDialog } from '@angular/material/dialog';
-// import { IEmployee } from 'src/app/Models/iemployee';
-// import { EmployeeFormComponent } from '../employee-form/employee-form.component';
+
 
 @Component({
   selector: 'app-employee-card',
@@ -12,7 +10,7 @@ import { EmployeeFormComponent } from 'src/app/shared/components/employee-form/e
   styleUrls: ['./employee-card.component.scss']
 })
 export class EmployeeCardComponent {
-  
+
   @Input() employeeData!: IEmployee;
   id!: number
 

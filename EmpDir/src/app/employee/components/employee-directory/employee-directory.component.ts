@@ -1,12 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { Subscription } from 'rxjs';
+import { Component } from '@angular/core';
 import { IEmployee } from 'src/app/shared/Models/iemployee';
 import { EmployeeDataService } from 'src/app/shared/services/employee-data.service';
 import { EmployeeFiltersService } from 'src/app/shared/services/employee-filters.service';
-import { EmployeesDataFilteringPipe } from '../../pipes/employees-data-filtering.pipe';
-// import { IEmployee } from 'src/app/Models/iemployee';
-// import { EmployeeDataService } from 'src/app/services/employee-data.service';
-// import { EmployeeFiltersService } from 'src/app/services/employee-filters.service';
+
 
 @Component({
   selector: 'app-employee-directory',

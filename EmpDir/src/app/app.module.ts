@@ -19,8 +19,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     AppRoutingModule,
     HttpClientModule,
     MatDialogModule,
-    EmployeeModule,
-    
+    EmployeeModule,   
   ],
   providers: [],
   bootstrap: [AppComponent]

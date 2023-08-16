@@ -11,6 +11,7 @@ const routes: Routes = [
   {
     path:"employees/Add",loadChildren:()=>import('./shared/shared.module').then(mod=>mod.SharedModule)
   }
+
 ];
 
 @NgModule({

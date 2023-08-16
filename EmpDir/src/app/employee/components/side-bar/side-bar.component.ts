@@ -5,12 +5,6 @@ import { EmployeeDataService } from 'src/app/shared/services/employee-data.servi
 import { EmployeeFiltersService } from 'src/app/shared/services/employee-filters.service';
 import { EmployeesDataFilteringPipe } from '../../pipes/employees-data-filtering.pipe';
 import { selectedFilterType } from '../../constants/selectedFilterEnum';
-// import { IEmployee } from 'src/app/Models/iemployee';
-// import { EmployeesDataFilteringPipe } from 'src/app/pipes/employees-data-filtering.pipe';
-// import { EmployeeDataService } from 'src/app/services/employee-data.service';
-// import { EmployeeFiltersService } from 'src/app/services/employee-filters.service';
-// import { selectedFilterType } from 'src/app/constants/selectedFilterEnum'
-// import { PipeModel } from 'src/app/Models/PipeModel';
 
 @Component({
   selector: 'app-side-bar',

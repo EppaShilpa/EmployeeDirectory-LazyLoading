@@ -18,8 +18,7 @@ export class EmployeesDataFilteringPipe implements PipeTransform {
       return employees.filter((employee: IEmployee) => (employee[filterType as keyof IEmployee] as string).startsWith(filterValue))
     }
     else if (selectedFilter === selectedFilterType.search) {
-      // return employees;
-     return employees.filter((employee: IEmployee) => (employee[filterType as keyof IEmployee] as string).toLowerCase().includes(filterValue))
+      return employees.filter((employee: IEmployee) => (employee[filterType as keyof IEmployee] as string).toLowerCase().includes(filterValue))
     }
     else {
       return employees;

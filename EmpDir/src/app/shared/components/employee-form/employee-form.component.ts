@@ -5,8 +5,6 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { IEmployee } from '../../Models/iemployee';
 import { EmployeeDataService } from '../../services/employee-data.service';
 import { Router } from '@angular/router';
-// import { IEmployee } from 'src/app/Models/iemployee';
-// import { EmployeeDataService } from 'src/app/services/employee-data.service';
 
 @Component({
   selector: 'app-employee-form',
@@ -62,6 +60,7 @@ export class EmployeeFormComponent {
       this.employeeService.updateEmployee(this.employeeForm.value)
     }
     this.ref.close();
+    this.router.navigate(['/employees']); 
   }
 
   closeModal() {
@@ -81,6 +80,7 @@ export class EmployeeFormComponent {
     console.log(this.employeeForm.value.id);
     this.employeeService.deleteEmployee(this.employeeForm.value.id)
     this.closeModal();
+    this.router.navigate(['/employees']); 
   }
 
   enableEdit(): void {
