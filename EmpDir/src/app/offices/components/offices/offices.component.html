@@ -1,0 +1,16 @@
+<div class="container mt-4">
+    <h1>Offices</h1>
+    <div *ngFor="let office of offices" class="office">
+      <div class="row">
+        <div class="col-2">
+            {{office?.name}}
+        </div>
+        <!-- <div class="col-1">
+            <button class="btn btn-danger p-1 m-2" (click)="deleteOffice(office?.id)">Delete</button>
+        </div> -->
+    </div>
+    </div>
+    <input type="text" name="" id="" [(ngModel)]="office">
+    <button class="btn btn-success p-1 m-1" (click)="postOffice()">Add Office</button> <br>
+    <button class="btn btn-primary mt-5 p-1" routerLink="/employees">View Employee Directory</button>
+</div>

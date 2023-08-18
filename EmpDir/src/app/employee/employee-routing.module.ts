@@ -5,8 +5,8 @@ import { EmployeeFormComponent } from '../shared/components/employee-form/employ
 
 const routes: Routes = [
   {path:"",component:LayoutComponent},
-  { path: 'add', component: EmployeeFormComponent },
-  { path: 'employee/:id', component: EmployeeFormComponent },
+  { path: 'add', component: EmployeeFormComponent},
+  { path: 'employee/:id', component: EmployeeFormComponent},
   { path: 'employee/edit/:id', component: EmployeeFormComponent }
 ];
 

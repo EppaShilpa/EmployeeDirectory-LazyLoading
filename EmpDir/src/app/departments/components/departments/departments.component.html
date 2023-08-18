@@ -1,0 +1,16 @@
+<div class="container mt-4">
+    <h1>Departments</h1>
+    <div *ngFor="let department of departments" class="department">
+        <div class="row">
+            <div class="col-2">
+                {{department?.name}}
+            </div>
+            <!-- <div class="col-1">
+                <button class="btn btn-danger p-1 m-2" (click)="deleteDepartment(department?.id)">Delete</button>
+            </div> -->
+        </div>
+    </div>
+    <input type="text" name="" id="" [(ngModel)]="department">
+    <button class="btn btn-success p-1 m-1" (click)="postDepartment()">Add Department</button> <br>
+    <button class="btn btn-primary mt-5 p-1" routerLink="/employees">View Employee Directory</button>
+</div>

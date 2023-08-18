@@ -55,34 +55,29 @@
 
         <div class="form-group">
             <label for="department"><b>Department</b></label>
-            <input type="text" formControlName="department" id="department" class="form-control inputField"
-                [class.invalid]="employeeForm.get('department')?.invalid && employeeForm.get('department').touched">
+            <select class="form-select" aria-label="Default select example" formControlName="department" class="form-control dropdown">
+                <option *ngFor="let department of departmentsData" [value]="department?.name">{{ department?.name }}</option>
+            </select>
             <span *ngIf="employeeForm.get('department')?.errors?.required && employeeForm.get('department').touched"
-                class="text-danger">This Field is Required</span>
-            <span
-                *ngIf="employeeForm.get('department')?.errors?.pattern&& !employeeForm.get('department')?.errors?.required"
-                class="text-danger">enter valid department</span>
+            class="text-danger">This Field is Required</span>
         </div>
 
         <div class="form-group">
             <label for="office"><b>Office</b></label>
-            <input type="text" formControlName="office" id="office" class="form-control inputField"
-                [class.invalid]="employeeForm.get('office')?.invalid && employeeForm.get('office').touched">
+            <select class="form-select" aria-label="Default select example" formControlName="office" class="form-control dropdown">
+                <option *ngFor="let office of officesData" [value]="office?.name">{{ office?.name }}</option>
+            </select>
             <span *ngIf="employeeForm.get('office')?.errors?.required && employeeForm.get('office').touched"
-                class="text-danger">This Field is Required</span>
-            <span *ngIf="employeeForm.get('office')?.errors?.pattern&& !employeeForm.get('office')?.errors?.required"
-                class="text-danger">Enter valid office name</span>
+            class="text-danger">This Field is Required</span>
         </div>
 
         <div class="form-group">
             <label for="jobTitle"><b>Job Title</b></label>
-            <input type="text" formControlName="jobTitle" id="jobTitle" class="form-control inputField"
-                [class.invalid]="employeeForm.get('jobTitle')?.invalid && employeeForm.get('jobTitle').touched">
+            <select class="form-select" aria-label="Default select example" formControlName="jobTitle" class="form-control dropdown">
+                <option *ngFor="let jobTitle of jobTitlesData" [value]="jobTitle?.name">{{ jobTitle?.name }}</option>
+            </select>
             <span *ngIf="employeeForm.get('jobTitle')?.errors?.required && employeeForm.get('jobTitle').touched"
-                class="text-danger">This Field is Required</span>
-            <span
-                *ngIf="employeeForm.get('jobTitle')?.errors?.pattern&& !employeeForm.get('jobTitle')?.errors?.required"
-                class="text-danger">Enter valid Jobtitle</span>
+            class="text-danger">This Field is Required</span>
         </div>
 
         <div class="form-group">
@@ -128,7 +123,8 @@
             </div>
             <div class="row" *ngIf="inputData.action=='DisplayAndEditEmployee' && !editMode">
                 <div class="col-6">
-                    <button type="button" class="btn btn-primary" (click)="enableEdit()" routerLink="employee/edit"  [routerLink]="['employee/edit', employeeId]">Edit Employee</button>
+                    <button type="button" class="btn btn-primary" (click)="enableEdit()" routerLink="employee/edit"
+                        [routerLink]="['employee/edit', employeeId]">Edit Employee</button>
                 </div>
                 <div class="col-6">
                     <button type="button" class="btn btn-primary" (click)="deleteEmployee()">Delete</button>

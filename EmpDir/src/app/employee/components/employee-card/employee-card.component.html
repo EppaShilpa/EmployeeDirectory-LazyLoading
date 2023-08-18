@@ -1,10 +1,10 @@
-<div class="card p-1" (click)="editEmployee()" routerLink="/employees/employee"  [routerLink]="['/employees/employee', employeeData.id]">
+<div class="card p-1" (click)="editEmployee()" [routerLink]="['/employees/employee', employeeData.id]">
     <div class="row">
         <div class="col-4">
             <img [src]="employeeData.imageUrl" class="employee-profile" alt="">
         </div>
         <div class="col-8">
-            <b class="text-dark opacity-75">{{employeeData.preferredName}}</b>
+            <b class=" opacity-25">{{employeeData.preferredName}}</b>
             <div class="emp-data">{{employeeData.jobTitle}}</div>
             <div class="fs-6 emp-data">{{employeeData.department}}</div>
             <ul class="icons">
@@ -39,4 +39,3 @@
         </div>
     </div>
 </div>
-<!-- <h1>card</h1> -->

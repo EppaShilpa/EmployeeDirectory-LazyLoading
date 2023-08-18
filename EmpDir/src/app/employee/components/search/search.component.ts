@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Alphabets } from '../../constants/alphabets';
 import { IEmployee } from 'src/app/shared/Models/iemployee';
 import { EmployeeFiltersService } from 'src/app/shared/services/employee-filters.service';
@@ -8,7 +8,8 @@ import { PipeModel } from 'src/app/shared/Models/PipeModel';
 import { selectedFilterType } from '../../constants/selectedFilterEnum';
 import { EmployeeFormComponent } from 'src/app/shared/components/employee-form/employee-form.component';
 import { MatDialog } from '@angular/material/dialog';
-
+import { Location } from '@angular/common'
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -17,16 +18,22 @@ import { MatDialog } from '@angular/material/dialog';
   styleUrls: ['./search.component.scss']
 })
 
-export class SearchComponent {
+export class SearchComponent implements OnInit{
   alphabetsArray: Array<string> = Alphabets;
   searchText!: string;
   employees!: IEmployee[];
   filteredData: IEmployee[] = [];
   selectedFilter: string = "preferredName";
 
+  constructor(private searchService: EmployeeFiltersService, private employeeService: EmployeeDataService, private dialog: MatDialog, private dataFilteringPipe: EmployeesDataFilteringPipe, private pipeModel: PipeModel,private location:Location,private router:Router) { 
+  }
 
-  constructor(private searchService: EmployeeFiltersService, private employeeService: EmployeeDataService, private dialog: MatDialog, private dataFilteringPipe: EmployeesDataFilteringPipe, private pipeModel: PipeModel) {
-    employeeService.employees$.subscribe(data => {
+  ngOnInit(): void {
+   this.subscribeData();
+  }
+  
+  subscribeData():void{
+    this.employeeService.employees$.subscribe(data => {
       this.employees = data;
     })
   }
@@ -40,15 +47,11 @@ export class SearchComponent {
   }
 
   handleSearch(): void {
-    console.log(this.searchText);
-    console.log(this.selectedFilter)
     this.pipeModel.employees = this.employees;
     this.pipeModel.filterType = this.selectedFilter;
     this.pipeModel.filterValue = this.searchText.toLowerCase();
     this.pipeModel.selectedFilter = selectedFilterType.search;
     this.searchService.filterData(this.pipeModel)
-    console.log(this.pipeModel);
-
   }
 
   viewAllEmployees(): void {
@@ -64,7 +67,8 @@ export class SearchComponent {
     this.pipeModel.filterType = "";
     this.pipeModel.filterValue = "";
     this.pipeModel.selectedFilter = "";
-    this.searchText = "";
+    this.searchText="";
+    this.selectedFilter="preferredName"
     this.searchService.filterData(this.pipeModel)
   }
 
@@ -74,6 +78,7 @@ export class SearchComponent {
         action: "AddEmployee"
       }
     })
+    
     dialogRef.afterOpened().subscribe(() => {
       const blurOverlay = document.createElement('div');
       blurOverlay.classList.add('blur-overlay');

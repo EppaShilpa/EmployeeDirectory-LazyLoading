@@ -7,13 +7,11 @@ import { PipeModel } from '../Models/PipeModel';
 })
 
 export class EmployeeFiltersService {
-  
-  private dataSubject=new Subject<PipeModel>();
-  data:Observable<PipeModel>=this.dataSubject.asObservable();
 
-  filterData(filterPipe:PipeModel){
-    console.log(filterPipe);
-    
+  private dataSubject = new Subject<PipeModel>();
+  data: Observable<PipeModel> = this.dataSubject.asObservable();
+
+  filterData(filterPipe: PipeModel) {
     this.dataSubject.next(filterPipe)
   }
 }

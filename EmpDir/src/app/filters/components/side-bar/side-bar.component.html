@@ -1,0 +1,23 @@
+<h5 class="ps-3" routerLink="/departments">Departments</h5>
+<div class="mb-4">
+    <button *ngFor="let department of departmentsData" class="btn btn-white shadow-none d-block filters"
+        (click)="getEmployeesBySideNavFilters('department',department?.name)">
+        {{department?.name}} ({{department?.count}})
+    </button>
+</div>
+
+<h5 class="ps-3" routerLink="/offices">Offices</h5>
+<div class="mb-4">
+    <button *ngFor="let office of officesData" class="btn btn-white shadow-none d-block filters"
+        (click)="getEmployeesBySideNavFilters('office',office?.name)">
+        {{office?.name}} ({{office?.count}})
+    </button>
+</div>
+
+<h5 class="ps-3"routerLink="/jobTitles" >Job Titles</h5>
+<div>
+    <button *ngFor="let jobTitle of jobTitlesData" class="btn btn-white shadow-none d-block filters"
+        (click)="getEmployeesBySideNavFilters('jobTitle',jobTitle?.name)">
+        {{jobTitle?.name}} ({{jobTitle?.count}})
+    </button>
+</div>

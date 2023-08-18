@@ -3,7 +3,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { EmployeeFormComponent } from './components/employee-form/employee-form.component';
 
 const routes: Routes = [
-  
 ];
 
 @NgModule({

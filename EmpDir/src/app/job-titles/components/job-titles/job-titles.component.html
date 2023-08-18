@@ -1,0 +1,16 @@
+<div class="container mt-4">
+    <h1>Job Titles</h1>
+    <div *ngFor="let jobTitle of jobTitles" class="jobTitle">
+      <div class="row">
+        <div class="col-2">
+            {{jobTitle?.name}}
+        </div>
+        <!-- <div class="col-1">
+            <button class="btn btn-danger p-1 m-2" (click)="deleteJobTitle(jobTitle?.id)">Delete</button>
+        </div> -->
+    </div>
+    </div>
+    <input type="text" name="" id="" [(ngModel)]="jobTitle">
+    <button class="btn btn-success p-1 m-1" (click)="postJobTitle()">Add JobTitle</button> <br>
+    <button class="btn btn-primary mt-5 p-1" routerLink="/employees">View Employee Directory</button>
+</div>

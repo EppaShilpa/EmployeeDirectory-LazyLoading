@@ -1,0 +1,1 @@
+export  const Offices:Array<string>=['India','Seattle']

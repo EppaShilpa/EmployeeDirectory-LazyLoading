@@ -1,0 +1,1 @@
+export const Departments: Array<string> = ['IT Department', ' MD Department', 'Sales Department','UX Department']

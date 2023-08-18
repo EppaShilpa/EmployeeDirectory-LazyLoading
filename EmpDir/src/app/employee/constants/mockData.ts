@@ -1,4 +1,4 @@
-import { IEmployee } from "src/app/Models/iemployee";
+import { IEmployee } from "src/app/shared/Models/iemployee";
 
    const Employees:IEmployee[] = [
     {   "id":0,
