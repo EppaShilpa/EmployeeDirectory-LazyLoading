@@ -14,29 +14,9 @@ export class EmployeeCardComponent {
   
   @Input() employeeData!: IEmployee;
   id!: number
-  private isPopupOpen = false;
-  constructor(private dialog: MatDialog,private location:Location,private router:Router) {
+
+  constructor() {
 
   }
 
-  editEmployee() {
-    const dialogRef = this.dialog.open(EmployeeFormComponent, {
-      
-      data: {
-        action: "DisplayAndEditEmployee",
-        id: this.employeeData.id
-      }
-    })
-    dialogRef.afterOpened().subscribe(() => {
-      const blurOverlay = document.createElement('div');
-      blurOverlay.classList.add('blur-overlay');
-      document.body.appendChild(blurOverlay);
-    });
-    dialogRef.afterClosed().subscribe(() => {
-      const blurOverlay = document.querySelector('.blur-overlay');
-      if (blurOverlay) {
-        document.body.removeChild(blurOverlay);
-      }
-    });
-  }
 }

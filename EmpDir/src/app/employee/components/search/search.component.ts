@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Alphabets } from '../../constants/alphabets';
 import { IEmployee } from 'src/app/shared/Models/iemployee';
 import { EmployeeFiltersService } from 'src/app/shared/services/employee-filters.service';
@@ -19,6 +19,7 @@ import { Router } from '@angular/router';
 })
 
 export class SearchComponent implements OnInit{
+  @Output() addEmployeeClicked: EventEmitter<void> = new EventEmitter<void>();
   alphabetsArray: Array<string> = Alphabets;
   searchText!: string;
   employees!: IEmployee[];
@@ -71,25 +72,4 @@ export class SearchComponent implements OnInit{
     this.selectedFilter="preferredName"
     this.searchService.filterData(this.pipeModel)
   }
-
-  openModal() {
-    const dialogRef = this.dialog.open(EmployeeFormComponent, {
-      data: {
-        action: "AddEmployee"
-      }
-    })
-    
-    dialogRef.afterOpened().subscribe(() => {
-      const blurOverlay = document.createElement('div');
-      blurOverlay.classList.add('blur-overlay');
-      document.body.appendChild(blurOverlay);
-    });
-    dialogRef.afterClosed().subscribe(() => {
-      const blurOverlay = document.querySelector('.blur-overlay');
-      if (blurOverlay) {
-        document.body.removeChild(blurOverlay);
-      }
-    });
-  }
-
 }

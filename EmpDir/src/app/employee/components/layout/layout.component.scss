@@ -1,0 +1,10 @@
+.employeeForm{
+    background-color: white;
+    position: absolute;
+    right:10px;
+    top:20px
+}
+.blur-overlay {
+    filter: blur(1px);  
+    pointer-events: none;
+  }
